@@ -1,0 +1,21 @@
+sectionPagesMenu = 'main'
+defaultContentLanguage = "sv"
+defaultContentLanguageInSubdir = true
+copyright = '&copy; 2023 AppaPappa AB'
+enableGitInfo = true
+
+[languages]
+  [languages.sv]
+    baseURL = 'https://www.appapappa.se'
+    languageCode = 'sv-SE'
+    title = 'Appapappa AB'
+    contentDir = "content/sv"
+    weight = 1
+  [languages.en]
+    baseURL = 'https://www.appapappa.se'
+    languageCode = 'en-us'
+    title = 'Appapappa AB'
+    contentDir = "content/en"
+    weight = 2
+    [languages.en.params]
+        color = 'blue'

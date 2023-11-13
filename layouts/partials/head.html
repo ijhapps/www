@@ -1,0 +1,14 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="{{ with .Description }}{{.}}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}">
+<meta name="author" content="{{ .Site.Params.author.name }}">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#1A9292">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} {{ end }}</title>
+<link rel=“icon” href=”favicon.ico” type=“image/x-icon”>
+<link rel=“shortcut icon” href=“favicon.ico” type=“image/x-icon”>
+<link rel="stylesheet" href="/css/style.css" />
+{{- if ne .Site.Params.plausibleDomain "" -}}
+    <script defer data-domain="{{ .Site.Params.plausibleDomain}}" src="https://plausible.io/js/script.js"></script>
+{{- end -}}

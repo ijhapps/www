@@ -1,0 +1,260 @@
+/*
+  Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+  - The "symbol *" part is to solve Firefox SVG sprite bug
+*/
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* Reapply the pointer cursor for anchor tags */
+a {
+  cursor: revert;
+}
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+  list-style: none;
+}
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]){
+  display:none;
+}
+/* revert for bug in Chromium browsers
+ - fix for the content editable attribute will work properly. */
+:where([contenteditable]){
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+}
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+
+:root {
+    --color1B: #FF5E2C;
+    --color2B: #F9B739;
+    --color4A: #1A9292;
+    --color4AA: #158080;
+    --colorWhite: #EBEBEB;
+    --colorWhite70: #EBEBEBB2;
+
+    --fontLarge: 700 32px 'Helvetica Neue', Arial, sans-serif;
+    --fontMedium: 24px 'Helvetica Neue', Arial, sans-serif;
+    --fontMediumLight: 300 24px 'Helvetica Neue', Arial, sans-serif;
+    --fontSmall: 300 20px 'Helvetica Neue', Arial, sans-serif;
+    --fontSmall2: 400 20px 'Helvetica Neue', Arial, sans-serif;
+    --fontExtraSmall: 300 16px 'Helvetica Neue', Arial, sans-serif;
+    --fontFooter: 13px 'Helvetica Neue', Arial, sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Helvetica Nueue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color4A);
+    color: var(--colorWhite);
+}
+
+h1,
+h2,
+h3 {
+    color: var(--colorWhite);
+    margin: 0;
+    font: var(--fontLarge);
+}
+
+p {
+    color: var(--colorWhite70);
+    font: var(--fontSmall);
+}
+
+#content {
+    --containerWidth: 1140px;
+}
+
+#content.terms {
+    --containerWidth: 640px;
+}
+
+#content main {
+    max-width: var(--containerWidth);
+    margin: 0 auto;
+}
+
+
+.index-section {
+    display: flex;
+    padding: 10%;
+    padding-top: 200px;
+    column-gap: 20%;
+    align-items: center;
+    flex-direction: column;
+}
+
+.index-section p {
+    font: var(--fontSmall2);
+}
+
+.index-section .logo {
+    width: 300px;
+}
+
+.index-section .left-side h2 {
+    margin-bottom: 24px;
+    letter-spacing: 0.64px;
+    padding: 0 10%;
+}
+
+.index-section .left-side p {
+    margin-bottom: 56px;
+    padding: 0 2%;
+}
+
+.index-section .app-list .app-icon {
+    width: 93px;
+    padding: 10px 0;
+}
+
+@media screen and (max-width: 875px) {
+    .index-section  {
+        padding: 0 15% 40px;
+        flex-direction: column-reverse;
+    }
+
+    .index-section .left-side p {
+        padding: 0;
+    }
+
+    .index-section .right-side {
+        position: relative;
+        margin-top: -100px;
+        margin-bottom: 24px;
+        min-width: initial;
+    }
+
+    .index-section .app-list {
+        margin-bottom: 24px;
+    }
+
+    .index-section .app-list .app-icon {
+        width: 120px;
+    }
+}
+
+.single-section {
+    padding: 10%;
+    padding-top: 60px;
+    text-align: center;
+}
+
+.single-section .single-content {
+    padding-top: 20px;
+    text-align: left;
+}
+
+.single-section h2 {
+    font: var(--fontMediumLight);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.single-section h2 em {
+    display: block;
+    text-align: center;
+    font: var(--fontExtraSmall);
+    opacity: .6;
+    padding-top: 10px;
+}
+
+.single-section p {
+    font: var(--fontExtraSmall);
+    margin-bottom: 24px;
+}
+
+.single-section ul {
+    margin-bottom: 40px;
+}
+
+.single-section li {
+}
+
+.single-section li strong {
+    display: block;
+    margin-bottom: 8px;
+    font: var(--fontSmall);
+    color: var(--colorWhite);
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    font: var(--fontFooter);
+    color: var(--colorWhite70);
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 48px;
+    background-color: var(--color4AA);
+}
+
+footer .link-list {
+    display: flex;
+}
+
+footer .link-list li {
+    margin-left: 32px;
+}
+
+footer .link-list a:hover {
+    text-decoration: underline;
+    color: var(--colorWhite);
+}
+
+@media screen and (max-width: 875px) {
+    footer {
+        position: initial;
+        padding: 24px;
+    }
+
+    footer .link-list {
+        column-gap: 20px;
+        justify-content: space-between;
+    }
+
+    footer .link-list li {
+        margin-left: 0;
+    }
+
+    footer .copyright {
+        text-align: center;
+    }
+
+}

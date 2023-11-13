@@ -1,0 +1,13 @@
+<footer>
+    <span class="copyright">{{ .Site.Copyright | safeHTML }}</span>
+    <nav>
+        <ul class="link-list">
+            <li><a href="mailto:hello@appapappa.se">hello@appapappa.se</a></li>
+            {{- with index site.Menus "footer" }}
+                {{- range . }}
+                    <li><a href="{{ .URL }}">{{ .Title }}</a></li>
+                {{- end }}
+            {{- end }}
+        </ul>
+    </nav>
+</footer>

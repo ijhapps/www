@@ -1,0 +1,16 @@
+{{ define "main" }}
+    <section class="index-section">
+        <img src="logo.png" alt="{{.Site.Title}}" class="logo">
+        {{ .Content }}
+        <ul class="app-list">
+            <li>
+                Du söker säkert efter vår aktuella app:
+            </li>
+            <li>
+                <a href="//www.dansstopp.se/">
+                    <img src="logo-dansstopp.svg" alt="Dansstopp" class="app-icon">
+                </a>
+            </li>
+        </ul>
+    </section>
+{{ end }}
