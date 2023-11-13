@@ -1,0 +1,9 @@
+AppaPappa AB Landing Page
+
+## Developer
+
+This landing page is built with hugo. In order to develop, start the Hugo developer server: 
+
+```
+$ hugo server
+```
