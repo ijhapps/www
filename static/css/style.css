@@ -110,19 +110,33 @@ p {
 
 
 .index-section {
-    display: flex;
     padding: 10%;
-    padding-top: 200px;
+    padding-top: 100px;
     column-gap: 20%;
     align-items: center;
     flex-direction: column;
 }
 
+.index-section a {
+    text-decoration: underline;
+    color: var(--colorWhite);
+}
+
+.index-section h2 {
+    font: var(--fontLarge);
+    margin-bottom: 16px;
+}
+
 .index-section p {
     font: var(--fontSmall2);
+    margin-bottom: 16px;
 }
 
 .index-section .logo {
+    text-align: center;
+}
+
+.index-section .logo img {
     width: 300px;
 }
 
@@ -135,6 +149,10 @@ p {
 .index-section .left-side p {
     margin-bottom: 56px;
     padding: 0 2%;
+}
+
+.index-section .app-list {
+    margin-top: 80px;
 }
 
 .index-section .app-list .app-icon {
